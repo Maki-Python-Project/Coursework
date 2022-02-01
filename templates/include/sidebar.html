@@ -1,0 +1,171 @@
+{% load movie_tag %}
+<div class="search-bar w3layouts-newsletter">
+    <h3 class="sear-head editContent">Пошук фільма</h3>
+    <form action="{% url 'search' %}" method="get" class="d-flex editContent">
+        <input type="search" placeholder="Введіть назву..." name="q" class="form-control" required="">
+        <button type="submit" class="btn1 btn"><span class="fa fa-search" aria-hidden="true"></span></button>
+    </form>
+</div>
+<!--preference -->
+<form action="{% url 'filter' %}" method="get" name="filter">
+    <div class="left-side my-4">
+        <h3 class="sear-head editContent">Жанри</h3>
+        <!-- <ul class="w3layouts-box-list">
+            {% for genre in view.get_genres %}
+                <li class="editContent">
+                    <input type="checkbox" class="checked" name="genre" value="{{ genre.id }}">
+                    <span class="span editContent">{{ genre.name }}</span>
+                </li>
+            {% endfor %}
+        </ul> -->
+
+    </div>
+
+    <div class="zagruska-proizvod-container1">
+        <input type="checkbox" id="zagruska-proizvod1"/>
+        <ul class="w3layouts-box-list">
+            {% for genre in view.get_genres %}
+            <li class="editContent">
+                <input type="checkbox" class="checked" name="genre" value="{{ genre.id }}">
+                <span class="span editContent">{{ genre.name }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+        <label class="zagruska-proizvod-btn1" for="zagruska-proizvod1">
+        <span class="unloaded1">... Показати більше</span>
+        <span class="loaded1">Показати менше</span>
+        </label>  
+      </div>
+    
+    <div class="left-side my-4">
+        <h3 class="sear-head editContent">Категорія</h3>
+        <div class="zagruska-proizvod-container1">
+        <ul class="w3layouts-box-list">
+            {% for category in view.get_categories %}
+                <li class="editContent">
+                    <input type="checkbox" class="checked" name="category" value="{{ category.id }}">
+                    <span class="span editContent">{{ category.name }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+
+    <!-- <div class="zagruska-proizvod-container2">
+        <input type="checkbox" id="zagruska-proizvod2"/>
+        <ul class="w3layouts-box-list">
+            {% for category in view.get_categories %}
+            <li class="editContent">
+                <input type="checkbox" class="checked" name="year" value="{{ category.id }}">
+                <span class="span editContent">{{ category.name }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+        <label class="zagruska-proizvod-btn2" for="zagruska-proizvod2">
+        <span class="unloaded2">... Показати більше</span>
+        <span class="loaded2">Показати менше</span>
+        </label>  
+      </div> -->
+    
+
+    <div class="left-side">
+        <h3 class="sear-head editContent">Рік</h3>
+        <!-- <ul class="w3layouts-box-list">
+            {% for movie in view.get_years %}
+                <li class="editContent">
+                    <input type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                    <span class="span editContent">{{movie.year}}</span>
+                </li>
+            {% endfor %}
+        </ul> -->
+        
+        <!-- <select class="sod" id="select">
+            {% for movie in view.get_years %}
+                <option>{{movie.year}}</option>
+            
+            {% endfor %}
+            
+        
+        </select> -->
+        
+    </div>
+    <div class="zagruska-proizvod-container3">
+        <input type="checkbox" id="zagruska-proizvod3"/>
+        <ul class="w3layouts-box-list">
+            {% for movie in view.get_years %}
+            <li class="editContent">
+                <input type="checkbox" class="checked" name="year" value="{{ movie.year }}">
+                <span class="span editContent">{{movie.year}}</span>
+            </li>
+        {% endfor %}
+        </ul>
+        <label class="zagruska-proizvod-btn3" for="zagruska-proizvod3">
+        <span class="unloaded3">... Показати більше</span>
+        <span class="loaded3">Показати менше</span>
+        </label>  
+      </div>
+
+    <br>
+    
+    <br>
+    <button class="btn btn-danger" type="submit">Знайти</button>
+</form>
+<br>
+<!-- //discounts -->
+<!-- reviews -->
+<!-- <div class="customer-rev left-side my-4">
+    <h3 class="sear-head editContent">Рейтинг</h3>
+    <ul class="w3layouts-box-list">
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="editContent">5.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">4.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-half-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">3.5</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">3.0</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star" aria-hidden="true"></span>
+                <span class="fa fa-star-half-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="fa fa-star-o" aria-hidden="true"></span>
+                <span class="editContent">2.5</span>
+            </a>
+        </li>
+    </ul>
+</div> -->
+{% get_last_movies count=4 %}

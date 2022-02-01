@@ -1,0 +1,10 @@
+<h3 class="footer-title text-uppercase editContent mb-lg-4 mb-3">
+    Contact me</h3>
+
+<p class="editContent">Якщо виникнуть питання, залиште свою електронну адресу і я обов'язково зв'яжуся з Вами!</p>
+<form action="{% url 'contact' %}" method="post" class="w3layouts-newsletter">
+    {% csrf_token %}
+    {{ contact_form }}
+    <button type="submit" class="btn1 btn"><span class="fa fa" aria-hidden="true">Send</span></button>
+    </button>
+</form>

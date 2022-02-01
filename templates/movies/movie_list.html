@@ -1,0 +1,47 @@
+{% extends 'movies/base.html' %}
+{% block title %} {% endblock title %}
+{% block header %} bg1 {% endblock header %}
+{% block movie %}
+
+    <div class="left-ads-display col-lg-9">
+        <div class="row">
+            {% for movie in movie_list %}
+                <div class="col-md-4 product-men">
+                    <div class="product-shoe-info editContent text-center mt-lg-4">
+                        <div class="men-thumb-item">
+                            <a href="{{ movie.get_absolute_url }}"><img src="{{ movie.poster.url }}" class="img-fluid" alt=""></a>
+                        </div>
+                        <div class="item-info-product">
+                            <h4 class="">
+                                
+                                <form action="{% url 'add_views' %}" method="post" name="views">
+                                    {% csrf_token %}
+                                    <!-- <a href="{{ movie.get_absolute_url }}"><input type="submit" class="button_active" value="{{movie.title}}" name="applybtn"></a> -->
+                                    
+                                    <a href="{{ movie.get_absolute_url }}">{{movie.title}}</a>
+                                    {% if user.is_authenticated %}
+                                        <button name="applybtn"  style="border: none; border-radius: 3px; background-color: #ff4c4c;" value="{{movie.title}}"><i class="fas fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                
+
+                            </h4>
+
+                            <div class="product_price">
+                                <div class="grid-price">
+                                    <span class="money editContent">{{ movie.tagline }}</span>
+                                </div>
+                            </div>
+                            <ul class="stars">
+                                <li><a href="#"><span   aria-hidden="true">{{movie.views}} разів переглядали цей фільм</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="grid-img-right mt-4 text-right bg bg1" >
+            {% include 'include/pagination.html' %}
+        </div>
+    </div>
+{% endblock movie %}
